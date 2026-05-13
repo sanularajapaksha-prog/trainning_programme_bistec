@@ -1,0 +1,89 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="dKz711A8H8XLxMtyMqPp">
+    <mxGraphModel dx="1222" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Im7w1MzqlrTvT2ebaeLk-1" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="👨‍🎓 Student" vertex="1">
+          <mxGeometry height="54" width="142" x="56" y="124" as="geometry" />
+        </mxCell>
+        <mxCell id="Im7w1MzqlrTvT2ebaeLk-2" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="👩‍🏫 Tutor" vertex="1">
+          <mxGeometry height="54" width="124" x="65" y="228" as="geometry" />
+        </mxCell>
+        <mxCell id="Im7w1MzqlrTvT2ebaeLk-3" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="🧑‍💼 Operations Admin" vertex="1">
+          <mxGeometry height="54" width="213" x="20" y="332" as="geometry" />
+        </mxCell>
+        <mxCell id="Im7w1MzqlrTvT2ebaeLk-4" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="📱 LearnLanka Platform" vertex="1">
+          <mxGeometry height="54" width="236" x="483" y="228" as="geometry" />
+        </mxCell>
+        <mxCell id="Im7w1MzqlrTvT2ebaeLk-5" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="💳 PayHere" vertex="1">
+          <mxGeometry height="54" width="145" x="1014" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Im7w1MzqlrTvT2ebaeLk-6" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="🎥 Daily.co / 100ms" vertex="1">
+          <mxGeometry height="54" width="206" x="984" y="124" as="geometry" />
+        </mxCell>
+        <mxCell id="Im7w1MzqlrTvT2ebaeLk-7" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="📩 SMS Gateway" vertex="1">
+          <mxGeometry height="54" width="181" x="996" y="228" as="geometry" />
+        </mxCell>
+        <mxCell id="Im7w1MzqlrTvT2ebaeLk-8" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="🏦 Sampath Vishwa" vertex="1">
+          <mxGeometry height="54" width="203" x="986" y="332" as="geometry" />
+        </mxCell>
+        <mxCell id="Im7w1MzqlrTvT2ebaeLk-9" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="☁️ Azure Cloud Services" vertex="1">
+          <mxGeometry height="54" width="235" x="969" y="436" as="geometry" />
+        </mxCell>
+        <mxCell id="Im7w1MzqlrTvT2ebaeLk-10" edge="1" parent="1" source="Im7w1MzqlrTvT2ebaeLk-1" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.5;entryX=0.23;entryY=0;rounded=0;" target="Im7w1MzqlrTvT2ebaeLk-4" value="Searches tutors, books sessions, pays, joins class via HTTPS / Mobile App">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="358" y="151" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Im7w1MzqlrTvT2ebaeLk-11" edge="1" parent="1" source="Im7w1MzqlrTvT2ebaeLk-2" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.5;entryX=0;entryY=0.5;rounded=0;" target="Im7w1MzqlrTvT2ebaeLk-4" value="Publishes slots, accepts bookings, joins sessions via HTTPS / Mobile App">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Im7w1MzqlrTvT2ebaeLk-12" edge="1" parent="1" source="Im7w1MzqlrTvT2ebaeLk-3" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.5;entryX=0.23;entryY=1;rounded=0;" target="Im7w1MzqlrTvT2ebaeLk-4" value="Manages tutors, bookings, complaints, and payouts via HTTPS / Admin Panel">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="358" y="359" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Im7w1MzqlrTvT2ebaeLk-13" edge="1" parent="1" source="Im7w1MzqlrTvT2ebaeLk-4" style="curved=1;startArrow=none;endArrow=block;exitX=0.64;exitY=0;entryX=0;entryY=0.5;rounded=0;" target="Im7w1MzqlrTvT2ebaeLk-5" value="Processes card and eZ Cash payments via HTTPS / API">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="844" y="47" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Im7w1MzqlrTvT2ebaeLk-14" edge="1" parent="1" source="Im7w1MzqlrTvT2ebaeLk-4" style="curved=1;startArrow=none;endArrow=block;exitX=0.77;exitY=0;entryX=0;entryY=0.5;rounded=0;" target="Im7w1MzqlrTvT2ebaeLk-6" value="Creates video rooms and manages online sessions via HTTPS / API">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="844" y="151" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Im7w1MzqlrTvT2ebaeLk-15" edge="1" parent="1" source="Im7w1MzqlrTvT2ebaeLk-4" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.5;entryX=0;entryY=0.5;rounded=0;" target="Im7w1MzqlrTvT2ebaeLk-7" value="Sends OTPs and booking alerts via HTTPS / SMS">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Im7w1MzqlrTvT2ebaeLk-16" edge="1" parent="1" source="Im7w1MzqlrTvT2ebaeLk-4" style="curved=1;startArrow=none;endArrow=block;exitX=0.77;exitY=1;entryX=0;entryY=0.5;rounded=0;" target="Im7w1MzqlrTvT2ebaeLk-8" value="Sends weekly tutor payout instructions via bank transfer channel">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="844" y="359" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Im7w1MzqlrTvT2ebaeLk-17" edge="1" parent="1" source="Im7w1MzqlrTvT2ebaeLk-4" style="curved=1;startArrow=none;endArrow=block;exitX=0.64;exitY=1;entryX=0;entryY=0.5;rounded=0;" target="Im7w1MzqlrTvT2ebaeLk-9" value="Uses hosting, database, and storage via Azure services">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="844" y="463" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

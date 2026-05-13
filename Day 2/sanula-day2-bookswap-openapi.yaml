@@ -1,0 +1,271 @@
+openapi: 3.1.0
+info:
+  title: BookSwap API
+  version: 0.1.0
+  description: |
+    BookSwap lets neighbours in a Colombo apartment block list and borrow books.
+    Book owners can share their collection; members can discover and request books.
+    All endpoints require a JWT Bearer token from Microsoft Entra External ID.
+
+servers:
+  - url: https://api.bookswap.local
+
+paths:
+
+  /books:
+    get:
+      summary: List books in the building
+      tags: [Books]
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: search
+          in: query
+          schema: { type: string }
+        - name: condition
+          in: query
+          schema: { type: string, enum: [new, good, fair, poor] }
+        - name: page
+          in: query
+          schema: { type: integer, default: 1 }
+        - name: pageSize
+          in: query
+          schema: { type: integer, default: 20 }
+      responses:
+        "200":
+          description: Paginated list of books
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/Page"
+                  - type: object
+                    properties:
+                      items:
+                        type: array
+                        items: { $ref: "#/components/schemas/Book" }
+        "401": { description: Missing or invalid token }
+
+    post:
+      summary: List a new book
+      tags: [Books]
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [title, author, isbn, condition]
+              properties:
+                title: { type: string, example: "Dune" }
+                author: { type: string, example: "Frank Herbert" }
+                isbn: { type: string, example: "9780441013593" }
+                condition: { type: string, enum: [new, good, fair, poor] }
+      responses:
+        "201":
+          description: Book created
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Book" }
+        "400": { description: Missing or invalid fields }
+        "401": { description: Missing or invalid token }
+
+  /books/{bookId}:
+    get:
+      summary: Get a single book
+      tags: [Books]
+      security:
+        - BearerAuth: []
+      parameters:
+        - $ref: "#/components/parameters/BookId"
+      responses:
+        "200":
+          description: Book found
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Book" }
+        "401": { description: Missing or invalid token }
+        "404": { description: Book not found }
+
+  /books/{bookId}/borrow-requests:
+    post:
+      summary: Request to borrow this book
+      tags: [Borrow Requests]
+      security:
+        - BearerAuth: []
+      parameters:
+        - $ref: "#/components/parameters/BookId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message: { type: string, example: "I will return it in two weeks." }
+      responses:
+        "201":
+          description: Borrow request submitted
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/BorrowRequest" }
+        "401": { description: Missing or invalid token }
+        "409": { description: Book unavailable or already requested }
+
+  /borrow-requests/{requestId}:
+    patch:
+      summary: Accept or decline a borrow request (owner only)
+      tags: [Borrow Requests]
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: requestId
+          in: path
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [decision]
+              properties:
+                decision: { type: string, enum: [accepted, declined] }
+      responses:
+        "200":
+          description: Request updated
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/BorrowRequest" }
+        "400": { description: Invalid decision value }
+        "401": { description: Missing or invalid token }
+        "403": { description: Not the book owner }
+        "404": { description: Request not found }
+
+  /loans/{loanId}:
+    patch:
+      summary: Mark a loan as returned
+      tags: [Loans]
+      security:
+        - BearerAuth: []
+      parameters:
+        - $ref: "#/components/parameters/LoanId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [status]
+              properties:
+                status: { type: string, enum: [returned] }
+      responses:
+        "200":
+          description: Loan marked returned
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Loan" }
+        "401": { description: Missing or invalid token }
+        "403": { description: Not the book owner }
+        "404": { description: Loan not found }
+
+  /loans:
+    get:
+      summary: List loans
+      tags: [Loans]
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: status
+          in: query
+          schema: { type: string, enum: [out, returned, overdue] }
+        - name: page
+          in: query
+          schema: { type: integer, default: 1 }
+        - name: pageSize
+          in: query
+          schema: { type: integer, default: 20 }
+      responses:
+        "200":
+          description: Paginated list of loans
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/Page"
+                  - type: object
+                    properties:
+                      items:
+                        type: array
+                        items: { $ref: "#/components/schemas/Loan" }
+        "401": { description: Missing or invalid token }
+
+components:
+
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  parameters:
+    BookId:
+      name: bookId
+      in: path
+      required: true
+      schema: { type: string }
+
+    LoanId:
+      name: loanId
+      in: path
+      required: true
+      schema: { type: string }
+
+  schemas:
+
+    Book:
+      type: object
+      required: [id, ownerId, title, author, isbn, condition, available, createdAt]
+      properties:
+        id: { type: string, example: "book-1" }
+        ownerId: { type: string, example: "member-1" }
+        title: { type: string, example: "Dune" }
+        author: { type: string, example: "Frank Herbert" }
+        isbn: { type: string, example: "9780441013593" }
+        condition: { type: string, enum: [new, good, fair, poor] }
+        photoUrl: { type: string, nullable: true }
+        available: { type: boolean, example: true }
+        createdAt: { type: string, format: date-time }
+
+    BorrowRequest:
+      type: object
+      required: [id, bookId, requesterId, status, createdAt]
+      properties:
+        id: { type: string, example: "req-1" }
+        bookId: { type: string, example: "book-1" }
+        requesterId: { type: string, example: "member-2" }
+        status: { type: string, enum: [pending, accepted, declined] }
+        message: { type: string, nullable: true }
+        createdAt: { type: string, format: date-time }
+
+    Loan:
+      type: object
+      required: [id, bookId, borrowerId, status, borrowedAt]
+      properties:
+        id: { type: string, example: "loan-1" }
+        bookId: { type: string, example: "book-1" }
+        borrowerId: { type: string, example: "member-2" }
+        status: { type: string, enum: [out, returned, overdue] }
+        borrowedAt: { type: string, format: date-time }
+        returnedAt: { type: string, format: date-time, nullable: true }
+
+    Page:
+      type: object
+      required: [page, pageSize, total]
+      properties:
+        page: { type: integer, example: 1 }
+        pageSize: { type: integer, example: 20 }
+        total: { type: integer, example: 12 }
