@@ -1,0 +1,140 @@
+<svg viewBox="0 0 1100 780" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <marker id="arrowB" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#60a5fa"/>
+    </marker>
+    <marker id="arrowG" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f59e0b"/>
+    </marker>
+    <marker id="arrowP" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#a78bfa"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1100" height="780" fill="#0f172a"/>
+
+  <!-- Title -->
+  <text x="550" y="36" fill="#f1f5f9" font-size="20" font-weight="700" text-anchor="middle">GreenChit — C4 Level 2 Container Diagram</text>
+  <text x="550" y="56" fill="#94a3b8" font-size="12" text-anchor="middle">BISTEC Internal Reimbursement Tool</text>
+
+  <!-- LEGEND -->
+  <rect x="20" y="680" width="280" height="88" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="30" y="698" fill="#94a3b8" font-size="11" font-weight="600">LEGEND</text>
+  <line x1="30" y1="712" x2="70" y2="712" stroke="#60a5fa" stroke-width="2" marker-end="url(#arrowB)"/>
+  <text x="76" y="716" fill="#cbd5e1" font-size="11">Synchronous (HTTPS / SQL / Redis)</text>
+  <line x1="30" y1="730" x2="70" y2="730" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowG)"/>
+  <text x="76" y="734" fill="#cbd5e1" font-size="11">Async queue message (AMQP)</text>
+  <line x1="30" y1="748" x2="70" y2="748" stroke="#a78bfa" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrowP)"/>
+  <text x="76" y="752" fill="#cbd5e1" font-size="11">JWT validation (HTTPS)</text>
+
+  <!-- Person: Staff Member -->
+  <circle cx="80" cy="155" r="22" fill="#1e293b" stroke="#60a5fa" stroke-width="2"/>
+  <line x1="80" y1="177" x2="80" y2="210" stroke="#60a5fa" stroke-width="2"/>
+  <line x1="55" y1="195" x2="105" y2="195" stroke="#60a5fa" stroke-width="2"/>
+  <line x1="80" y1="210" x2="60" y2="235" stroke="#60a5fa" stroke-width="2"/>
+  <line x1="80" y1="210" x2="100" y2="235" stroke="#60a5fa" stroke-width="2"/>
+  <text x="80" y="255" fill="#f1f5f9" font-size="13" font-weight="600" text-anchor="middle">Staff / Manager</text>
+  <text x="80" y="270" fill="#94a3b8" font-size="10" text-anchor="middle">[Person]</text>
+
+  <!-- Web App -->
+  <rect x="170" y="108" width="170" height="82" rx="8" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
+  <text x="255" y="130" fill="#93c5fd" font-size="10" text-anchor="middle">[Container]</text>
+  <text x="255" y="148" fill="#f1f5f9" font-size="14" font-weight="700" text-anchor="middle">Web App</text>
+  <text x="255" y="163" fill="#94a3b8" font-size="10" text-anchor="middle">React SPA</text>
+  <text x="255" y="176" fill="#94a3b8" font-size="10" text-anchor="middle">Azure Static Web Apps</text>
+
+  <!-- Claims API -->
+  <rect x="420" y="100" width="190" height="96" rx="8" fill="#14532d" stroke="#22c55e" stroke-width="2"/>
+  <text x="515" y="122" fill="#86efac" font-size="10" text-anchor="middle">[Container]</text>
+  <text x="515" y="140" fill="#f1f5f9" font-size="14" font-weight="700" text-anchor="middle">Claims API</text>
+  <text x="515" y="155" fill="#94a3b8" font-size="10" text-anchor="middle">Node.js / Express</text>
+  <text x="515" y="168" fill="#94a3b8" font-size="10" text-anchor="middle">Azure App Service P2v3</text>
+  <text x="515" y="181" fill="#94a3b8" font-size="10" text-anchor="middle">REST API</text>
+
+  <!-- Azure SQL -->
+  <rect x="420" y="290" width="190" height="82" rx="8" fill="#4c1d95" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="515" y="311" fill="#c4b5fd" font-size="10" text-anchor="middle">[Container]</text>
+  <text x="515" y="329" fill="#f1f5f9" font-size="14" font-weight="700" text-anchor="middle">Database</text>
+  <text x="515" y="344" fill="#94a3b8" font-size="10" text-anchor="middle">Azure SQL — General Purpose</text>
+  <text x="515" y="357" fill="#94a3b8" font-size="10" text-anchor="middle">Claims · Audit · Claimants</text>
+
+  <!-- Blob Storage -->
+  <rect x="700" y="100" width="180" height="82" rx="8" fill="#7c2d12" stroke="#f97316" stroke-width="2"/>
+  <text x="790" y="122" fill="#fdba74" font-size="10" text-anchor="middle">[Container]</text>
+  <text x="790" y="140" fill="#f1f5f9" font-size="14" font-weight="700" text-anchor="middle">Blob Storage</text>
+  <text x="790" y="155" fill="#94a3b8" font-size="10" text-anchor="middle">Azure Blob Storage</text>
+  <text x="790" y="168" fill="#94a3b8" font-size="10" text-anchor="middle">Receipt files · Signed URLs</text>
+  <text x="790" y="181" fill="#94a3b8" font-size="10" text-anchor="middle">Up to 10 MB per file</text>
+
+  <!-- Service Bus -->
+  <rect x="420" y="460" width="190" height="82" rx="8" fill="#1e3a5f" stroke="#0ea5e9" stroke-width="2"/>
+  <text x="515" y="481" fill="#7dd3fc" font-size="10" text-anchor="middle">[Container]</text>
+  <text x="515" y="499" fill="#f1f5f9" font-size="14" font-weight="700" text-anchor="middle">Queue</text>
+  <text x="515" y="514" fill="#94a3b8" font-size="10" text-anchor="middle">Azure Service Bus Standard</text>
+  <text x="515" y="527" fill="#94a3b8" font-size="10" text-anchor="middle">Notifications · Export jobs</text>
+
+  <!-- Notification Worker -->
+  <rect x="170" y="460" width="180" height="82" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="2"/>
+  <text x="260" y="481" fill="#6ee7b7" font-size="10" text-anchor="middle">[Container]</text>
+  <text x="260" y="499" fill="#f1f5f9" font-size="14" font-weight="700" text-anchor="middle">Notif. Worker</text>
+  <text x="260" y="514" fill="#94a3b8" font-size="10" text-anchor="middle">Azure Function (consumption)</text>
+  <text x="260" y="527" fill="#94a3b8" font-size="10" text-anchor="middle">Teams card · Email fallback</text>
+
+  <!-- Export Worker -->
+  <rect x="700" y="460" width="180" height="82" rx="8" fill="#1c1917" stroke="#a8a29e" stroke-width="2"/>
+  <text x="790" y="481" fill="#d6d3d1" font-size="10" text-anchor="middle">[Container]</text>
+  <text x="790" y="499" fill="#f1f5f9" font-size="14" font-weight="700" text-anchor="middle">Export Worker</text>
+  <text x="790" y="514" fill="#94a3b8" font-size="10" text-anchor="middle">Azure Function (consumption)</text>
+  <text x="790" y="527" fill="#94a3b8" font-size="10" text-anchor="middle">CSV → SharePoint via Graph</text>
+
+  <!-- Identity -->
+  <rect x="420" y="630" width="190" height="82" rx="8" fill="#292524" stroke="#78716c" stroke-width="2"/>
+  <text x="515" y="651" fill="#d6d3d1" font-size="10" text-anchor="middle">[Container]</text>
+  <text x="515" y="669" fill="#f1f5f9" font-size="14" font-weight="700" text-anchor="middle">Identity</text>
+  <text x="515" y="684" fill="#94a3b8" font-size="10" text-anchor="middle">Microsoft Entra ID</text>
+  <text x="515" y="697" fill="#94a3b8" font-size="10" text-anchor="middle">BISTEC tenant · JWT issuance</text>
+
+  <!-- ARROWS -->
+  <!-- Staff → Web App -->
+  <line x1="130" y1="160" x2="168" y2="150" stroke="#60a5fa" stroke-width="2" marker-end="url(#arrowB)"/>
+  <text x="150" y="145" fill="#93c5fd" font-size="9" text-anchor="middle">uses / HTTPS</text>
+
+  <!-- Web App → Claims API -->
+  <line x1="340" y1="149" x2="418" y2="149" stroke="#60a5fa" stroke-width="2" marker-end="url(#arrowB)"/>
+  <text x="379" y="143" fill="#93c5fd" font-size="9" text-anchor="middle">REST / HTTPS</text>
+
+  <!-- Claims API → Database -->
+  <line x1="515" y1="196" x2="515" y2="288" stroke="#60a5fa" stroke-width="2" marker-end="url(#arrowB)"/>
+  <text x="535" y="245" fill="#93c5fd" font-size="9">reads+writes</text>
+  <text x="535" y="257" fill="#93c5fd" font-size="9">SQL/TDS</text>
+
+  <!-- Claims API → Blob Storage -->
+  <line x1="610" y1="141" x2="698" y2="141" stroke="#60a5fa" stroke-width="2" marker-end="url(#arrowB)"/>
+  <text x="654" y="135" fill="#93c5fd" font-size="9" text-anchor="middle">issues SAS URL</text>
+  <text x="654" y="146" fill="#93c5fd" font-size="9" text-anchor="middle">HTTPS</text>
+
+  <!-- Claims API → Queue -->
+  <line x1="515" y1="196" x2="515" y2="458" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowG)"/>
+  <text x="527" y="330" fill="#fcd34d" font-size="9">publishes event</text>
+  <text x="527" y="342" fill="#fcd34d" font-size="9">AMQP</text>
+
+  <!-- Queue → Notification Worker -->
+  <line x1="418" y1="501" x2="350" y2="501" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowG)"/>
+  <text x="384" y="495" fill="#fcd34d" font-size="9" text-anchor="middle">consumes</text>
+  <text x="384" y="507" fill="#fcd34d" font-size="9" text-anchor="middle">AMQP</text>
+
+  <!-- Queue → Export Worker -->
+  <line x1="610" y1="501" x2="698" y2="501" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowG)"/>
+  <text x="654" y="495" fill="#fcd34d" font-size="9" text-anchor="middle">consumes</text>
+  <text x="654" y="507" fill="#fcd34d" font-size="9" text-anchor="middle">AMQP</text>
+
+  <!-- Claims API → Identity (JWT validation) -->
+  <line x1="515" y1="628" x2="515" y2="426" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowP)"/>
+  <text x="527" y="580" fill="#c4b5fd" font-size="9">validates JWT</text>
+  <text x="527" y="592" fill="#c4b5fd" font-size="9">HTTPS JWKS</text>
+
+  <!-- Web App → Blob (direct upload) -->
+  <line x1="340" y1="130" x2="698" y2="128" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="2,2" marker-end="url(#arrowB)"/>
+  <text x="520" y="115" fill="#93c5fd" font-size="9" text-anchor="middle">direct PUT (SAS) / HTTPS</text>
+</svg>
